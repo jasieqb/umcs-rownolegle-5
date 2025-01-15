@@ -1,0 +1,46 @@
+# C++ object files
+*.o
+*.obj
+*.lo
+*.la
+*.al
+
+# C++ libraries
+*.lib
+*.a
+*.la
+*.lo
+*.def
+*.exp
+
+# C++ executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# CUDA binaries
+*.cubin
+*.ptx
+*.fatbin
+
+# OpenMP and MPI files
+*.omp
+*.mpi
+
+# General temporary files
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.old
+*.orig
+
+# Backup files
+*~
+# Directory for build output
+/build/
