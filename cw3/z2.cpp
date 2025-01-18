@@ -1,37 +1,29 @@
 #include <iostream>
-#include <cmath>
 #include <omp.h>
 
-double f(double x) {
-    return x + sin(1.0 / x);
-}
-
-double calka(double a, double b, int n) {
-    double h = (b - a) / n;
-    double sum = 0.0;
-    #pragma omp parallel
+double compute_sequence(int n)
+{
+    double result = -1.0;
+    int i;
+#pragma omp parallel for reduction(- : result)
+    for (i = 2; i <= n; i++)
     {
-        double local_sum = 0.0;
-
-        #pragma omp for
-        for (int i = 1; i < n; ++i) {
-            double x = a + i * h;
-            local_sum += f(x);
-        }
-        #pragma omp critical
-        sum += local_sum;
+        result -= 1.0 / i;
     }
-    sum += (f(a) + f(b)) / 2.0;
-    return sum * h;
+
+    return result;
 }
 
-int main() {
-    double a = 0.01;
-    double b = 1.0;
-    int n = 1000000; // Liczba przedziałów
-    double result = calka
-(a, b, n);
-    std::cout << "Wynik całkowania: " << result << std::endl;
+int main()
+{
+    int n = 1000;
+    double result;
+
+    omp_set_num_threads(4);
+
+    result = compute_sequence(n);
+
+    std::cout << "Wynik ciągu dla n = " << n << ": " << result << std::endl;
 
     return 0;
 }

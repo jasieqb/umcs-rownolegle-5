@@ -38,43 +38,47 @@ nvcc -o <output_file> <source_file>.cu
 
 ### Spis Zadań z Podziałem na Daty
 
-#### **14.10.2024**
+#### Zad 1 -- cw1
+
+- ~~proste sumowanie tablicy z własnym schedulerem~~
+
+#### **14.10.2024** --cw2
 - Zadania ze skryptu:
   - 4.6
   - 4.8
 
-#### **21.10.2024**
+#### **21.10.2024** --cw3
 - Zadania ze skryptu:
   - 4.4
   - 4.5
 
-#### **28.10.2024**
+#### **28.10.2024** --cw3_5
 - Zadania ze skryptu:
   - ~~4.4~~
   - ~~4.19 (oba z samodzielną implementacją redukcji)~~
 
-#### **04.11.2024**
+#### **04.11.2024** --cw4
 - Znaleźć lub wymyślić problem, który da się zrównoleglić za pomocą tasków w OpenMP (i zaimplementować).
   - Propozycja: rozważyć problemy rekurencyjne (z wyłączeniem Fibonacciego).
   - Ważna poprawna struktura programu oraz poprawny końcowy wynik.
   - Przyspieszenie dzięki taskom jest mile widziane, ale nieobowiązkowe.
 
-#### **25.11.2024**
-- CUDA: Sumowanie tablic na GPU:
-  1. Zaalokować i zainicjalizować dwie tablice (int) na CPU.
-  2. Skopiować dane z CPU do GPU.
-  3. Napisać kernel sumujący dwie tablice (wynik w trzeciej tablicy).
-  4. Skopiować wyniki z GPU do CPU i wyświetlić.
+#### **25.11.2024** -- cw5
+- ~~CUDA: Sumowanie tablic na GPU:~~
+  1. ~~Zaalokować i zainicjalizować dwie tablice (int) na CPU.~~
+  2. ~~Skopiować dane z CPU do GPU.~~
+  3. ~~Napisać kernel sumujący dwie tablice (wynik w trzeciej tablicy).~~
+  4. ~~Skopiować wyniki z GPU do CPU i wyświetlić.~~
 
-#### **02.12.2024**
+#### ~~**02.12.2024**~~ -- cw6
 - Implementacja redukcji na GPU (CUDA):
   - Zadanie: Sumowanie relatywnie dużej tablicy (np. 100.000 elementów).
   - Wersja redukcji:
     - Wyniki kumulowane po lewej stronie tablicy.
     - Jednowymiarowa tablica i kernel, uruchamiany w wielu blokach (np. 100 bloków po 1024 wątki).
 
-#### **09.12.2024**
-- Zadanie na wykorzystanie pamięci **shared** (CUDA):
+#### ~~**09.12.2024**~~ -- cw7
+- ~~Zadanie na wykorzystanie pamięci **shared** (CUDA):~~
   1. Zaalokować tablicę na GPU (1024 liczby zmiennoprzecinkowe) i zainicjalizować ją.
   2. Napisać kernel:
      - Przemnożyć każdy element przez jego 10 prawych i 10 lewych sąsiadów.
@@ -93,7 +97,7 @@ nvcc -o <output_file> <source_file>.cu
   3. Cele:
      - Skrócenie czasu wykonania programu dzięki jednoczesnemu przetwarzaniu i przesyłaniu danych.
 
-#### **Zadanie MPI**
+#### **Zadanie MPI** -- cw8
 - Implementacja programu wykorzystującego MPI do wyznaczenia liczby PI metodą Monte Carlo:
   1. Proces 0 rozdziela pracę między procesy.
   2. Procesy wykonują losowania i przesyłają wyniki do procesu 0.

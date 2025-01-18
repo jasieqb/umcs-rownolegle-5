@@ -1,31 +1,26 @@
-#include <iostream>
 #include <omp.h>
+#include <iostream>
 
-double sredniaArytm(double a[], int n) {
-    double suma = 0.0; //globalna zmienna suma
+double sredniaArytm(double a[], int n)
+{
+    double suma = 0.0;
 
-    #pragma omp parallel
+#pragma omp parallel for reduction(+ : suma)
+    for (int i = 0; i < n; ++i)
     {
-        double local_sum = 0.0; //lokalna zmienna suma
-        #pragma omp for
-        for (int i = 0; i < n; i++) {
-            local_sum += a[i];
-        }
-        #pragma omp atomic
-        suma += local_sum;
+        suma += a[i];
     }
 
-    // Obliczanie średniej arytmetycznej
     return suma / n;
 }
 
-int main() {
-    int n = 10; 
-    double a[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0};
+int main()
+{
+    const int rozmiar = 10;
+    double tablica[rozmiar] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0};
 
-    double srednia = sredniaArytm(a, n);
-
-    printf("Średnia arytmetyczna: %.2f\n", srednia);
+    double wynik = sredniaArytm(tablica, rozmiar);
+    std::cout << "Średnia arytmetyczna: " << wynik << std::endl;
 
     return 0;
 }

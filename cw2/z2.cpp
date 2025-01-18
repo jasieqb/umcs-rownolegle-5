@@ -3,13 +3,11 @@
 #include <ctime>
 #include <omp.h>
 
-// Funkcja obliczająca wartość liczby pi metodą Monte Carlo
 double obliczPi(int liczbaPunktow) {
     int punktyWewnatrzOkregu = 0;
 
     #pragma omp parallel
     {
-        // Inicjalizacja generatora liczb losowych dla każdego wątku
         std::srand(std::time(nullptr) + omp_get_thread_num());
 
         int lokalnePunktyWewnatrzOkregu = 0;
@@ -23,8 +21,6 @@ double obliczPi(int liczbaPunktow) {
                 ++lokalnePunktyWewnatrzOkregu;
             }
         }
-
-        // Zliczanie punktów w sekcji krytycznej
         #pragma omp atomic
         punktyWewnatrzOkregu += lokalnePunktyWewnatrzOkregu;
     }
@@ -33,7 +29,7 @@ double obliczPi(int liczbaPunktow) {
 }
 
 int main() {
-    int liczbaPunktow = 10000000; // Liczba punktów do wylosowania
+    int liczbaPunktow = 10000000; 
     double pi = obliczPi(liczbaPunktow);
     std::cout << "Wyznaczona wartość liczby pi: " << pi << std::endl;
 
