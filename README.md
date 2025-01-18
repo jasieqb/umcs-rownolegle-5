@@ -85,8 +85,8 @@ nvcc -o <output_file> <source_file>.cu
      - Operacje wykonywać w pamięci shared.
   3. Zwrócić wyniki do tablicy globalnej (uwaga na bariery synchronizacji).
 
-#### **16.12.2024** *(opcjonalne / dodatkowe / na wymianę za inne zadanie)*
-- Zadanie na wykorzystanie strumieni w CUDA:
+#### **16.12.2024** *(opcjonalne / dodatkowe / na wymianę za inne zadanie)* --dod
+- Zadanie na wykorzystanie strumieni w CUDA: 
   1. Wybrać problem, który można podzielić na porcje (np. podnoszenie elementów dużej tablicy do kwadratu).
   2. Struktura programu:
      - Jednoczesne przesyłanie i przetwarzanie danych na GPU za pomocą dwóch strumieni.
